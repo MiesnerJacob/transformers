@@ -60,6 +60,12 @@ def main():
         )
 
     onnx_inputs, onnx_outputs = export(tokenizer, model, onnx_config, args.opset, args.output)
+    print("inputs: ")
+    print(onnx_inputs)
+    print('\n')
+    print("outputs: ")
+    print(onnx_outputs)
+    print('\n')
 
     validate_model_outputs(onnx_config, tokenizer, model, args.output, onnx_outputs, args.atol)
     logger.info(f"All good, model saved at: {args.output.as_posix()}")
