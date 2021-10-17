@@ -16,6 +16,7 @@
 """ XLM-RoBERTa configuration """
 from collections import OrderedDict
 from typing import Mapping
+from transformers import PretrainedConfig
 
 from ...onnx import OnnxConfig
 from ...utils import logging
@@ -45,6 +46,13 @@ class XLMRobertaConfig(RobertaConfig):
 
 # Copied from transformers.models.roberta.configuration_roberta.RobertaOnnxConfig with Roberta->XLMRoberta
 class XLMRobertaOnnxConfig(OnnxConfig):
+        def __init__(
+        self,
+        config: PretrainedConfig,
+        task: str = "default",
+    ):
+        super().__init__(config, task=task)
+        
     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
         return OrderedDict(
