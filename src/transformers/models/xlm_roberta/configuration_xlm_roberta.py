@@ -50,8 +50,8 @@ class XLMRobertaOnnxConfig(OnnxConfig):
         self,
         config: PretrainedConfig,
         task: str = "default",
-    ):
-        super().__init__(config, task=task)
+        ):
+            super().__init__(config, task=task)
         
     @property
     def inputs(self) -> Mapping[str, Mapping[int, str]]:
