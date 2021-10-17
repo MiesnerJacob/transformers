@@ -46,22 +46,18 @@ class XLMRobertaConfig(RobertaConfig):
 
 # Copied from transformers.models.roberta.configuration_roberta.RobertaOnnxConfig with Roberta->XLMRoberta
 class XLMRobertaOnnxConfig(OnnxConfig):
-        def __init__(
-        self,
-        config: PretrainedConfig,
-        task: str = "default",
-        ):
+        def __init__(self, config: PretrainedConfig, task: str = "default"):
             super().__init__(config, task=task)
-        
-    @property
-    def inputs(self) -> Mapping[str, Mapping[int, str]]:
-        return OrderedDict(
-            [
-                ("input_ids", {0: "batch", 1: "sequence"}),
-                ("attention_mask", {0: "batch", 1: "sequence"}),
-            ]
-        )
+            
+        @property
+        def inputs(self) -> Mapping[str, Mapping[int, str]]:
+            return OrderedDict(
+                [
+                    ("input_ids", {0: "batch", 1: "sequence"}),
+                    ("attention_mask", {0: "batch", 1: "sequence"}),
+                ]
+            )
 
-    @property
-    def outputs(self) -> Mapping[str, Mapping[int, str]]:
-        return OrderedDict([("last_hidden_state", {0: "batch", 1: "sequence"}), ("pooler_output", {0: "batch"})])
+        @property
+        def outputs(self) -> Mapping[str, Mapping[int, str]]:
+            return OrderedDict([("last_hidden_state", {0: "batch", 1: "sequence"}), ("pooler_output", {0: "batch"})])
