@@ -65,11 +65,11 @@ class FeaturesManager:
         "distilbert": supported_features_mapping("default", onnx_config_cls=DistilBertOnnxConfig),
         "gpt2": supported_features_mapping("default", onnx_config_cls=GPT2OnnxConfig),
         "longformer": supported_features_mapping("default", onnx_config_cls=LongformerOnnxConfig),
-        "roberta": supported_features_mapping("default", "sequence-classification", onnx_config_cls=RobertaOnnxConfig),
+        "roberta": supported_features_mapping("default", onnx_config_cls=RobertaOnnxConfig),
         "t5": supported_features_mapping(
             "default", "default-with-past", "seq2seq-lm", "seq2seq-lm-with-past", onnx_config_cls=T5OnnxConfig
         ),
-        "xlm-roberta": supported_features_mapping("default", onnx_config_cls=XLMRobertaOnnxConfig),
+        "xlm-roberta": supported_features_mapping("default", "sequence-classification", onnx_config_cls=XLMRobertaOnnxConfig),
         "gpt-neo": supported_features_mapping(
             "default",
             "causal-lm",
